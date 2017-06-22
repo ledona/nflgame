@@ -118,7 +118,7 @@ def gsis_id(profile_url):
     resp, content = new_http().request(profile_url, 'GET')
     if resp['status'] != '200':
         return None
-    m = re.search('GSIS\s+ID:\s+([0-9-]+)', content)
+    m = re.search('GSIS\s+ID:\s+([0-9-]+)', str(content))
     if m is None:
         return None
     gid = m.group(1).strip()
@@ -457,7 +457,7 @@ def run():
     # Finally, try to scrape meta data for players who aren't on a roster
     # but have recorded a statistic in nflgame.
     gids = [(gid, meta['profile_url'])
-            for gid, meta in metas.iteritems()
+            for gid, meta in metas.items()
             if 'full_name' not in meta and 'profile_url' in meta]
     if len(gids):
         eprint('Fetching meta data for players not on a roster...')
