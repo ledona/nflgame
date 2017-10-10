@@ -134,7 +134,7 @@ teams = [
     ['PHI', 'Philadelphia', 'Eagles', 'Philadelphia Eagles'],
     ['PIT', 'Pittsburgh', 'Steelers', 'Pittsburgh Steelers'],
     ['SEA', 'Seattle', 'Seahawks', 'Seattle Seahawks'],
-    ['SD', 'San Diego', 'Chargers', 'San Diego Chargers', 'S.D.', 'SDG', 'SD'],
+    ['SD', 'San Diego', 'Chargers', 'San Diego Chargers', 'S.D.', 'SDG'],
     ['SF', 'San Francisco', '49ers', 'San Francisco 49ers', 'S.F.', 'SFO'],
     ['STL', 'St. Louis', 'Rams', 'St. Louis Rams', 'S.T.L.'],
     ['TB', 'Tampa Bay', 'Buccaneers', 'Tampa Bay Buccaneers', 'T.B.', 'TAM'],
