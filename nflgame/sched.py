@@ -19,7 +19,6 @@ def _create_schedule(jsonf=None):
     dictionaries with the following keys: week, month, year, home,
     away, wday, gamekey, season_type, time.
     """
-    day = 60 * 60 * 24
     if jsonf is None:
         jsonf = _sched_json_file
     try:
@@ -32,7 +31,7 @@ def _create_schedule(jsonf=None):
         d[gsis_id] = info
     last_updated = datetime.datetime.utcfromtimestamp(data.get('time', 0))
 
-    if (datetime.datetime.utcnow() - last_updated).total_seconds() >= day:
+    if (datetime.datetime.utcnow() - last_updated) >= datetime.timedelta(days=1):
         # Only try to update if we can write to the schedule file.
         if os.access(jsonf, os.W_OK):
             import nflgame.live

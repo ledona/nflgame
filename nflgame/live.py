@@ -65,12 +65,12 @@ _WEEK_INTERVAL = 60 * 60 * 12
 How often to check what the current week is. By default, it is twice a day.
 """
 
-#_CUR_SCHEDULE = "http://www.nfl.com/liveupdate/scorestrip/ss.xml"
+_CUR_SCHEDULE = "http://www.nfl.com/liveupdate/scorestrip/ss.xml"
 # """
 # Pinged infrequently to discover the current week number, year and week type.
 # The actual schedule of games is taken from the schedule module.
 # """
-_CUR_SCHEDULE = "http://www.nfl.com/liveupdate/scorestrip/postseason/ss.xml"
+# _CUR_SCHEDULE = "http://www.nfl.com/liveupdate/scorestrip/postseason/ss.xml"
 
 """
 The URL for the XML schedule of the post season. This is only used
@@ -354,7 +354,6 @@ def _now():
 
 def _update_week_number():
     global _cur_week, _cur_year, _cur_season_phase
-
     dom = xml.parse(urllib.urlopen(_CUR_SCHEDULE, timeout=5))
     gms = dom.getElementsByTagName('gms')[0]
     _cur_week = int(gms.getAttribute('w'))

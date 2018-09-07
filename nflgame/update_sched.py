@@ -5,13 +5,16 @@ import json
 import os
 import sys
 import xml.dom.minidom as xml
+from datetime import date
 
 import nflgame
 from nflgame.compat import OrderedDict, range, urllib
 
 
 def year_phase_week(year=None, phase=None, week=None):
-    cur_year, _ = nflgame.live.current_year_and_week()
+    today = date.today()
+    cur_year = today.year - 1 if today.month < 6 else today.year
+
     season_types = (
         ('PRE', range(0, 4 + 1)),
         ('REG', range(1, 17 + 1)),
